@@ -1,0 +1,7 @@
+#!/bin/sh
+#
+# This example tests that the commit message contains DS, exit 1 will fail the commit.
+test "" != "$(grep '\JIRA-[0-9]{5}\s[a-z]{15}' "$1")" || {
+  echo >&2 "ERROR: Commit message is should start with Jira number and 15 characters message Ex : JIRA-12345 characters text message"
+  exit 1
+}
